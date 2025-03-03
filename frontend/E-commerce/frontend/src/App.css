@@ -3,17 +3,22 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  font-family: 'Arial', sans-serif; /* Added font */
+  background: linear-gradient(135deg, #6e8efb, #a777e3); /* Added background gradient */
 }
 
 .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
-  transition: filter 300ms;
+  transition: filter 300ms, transform 300ms; /* Added transform transition */
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
+  transform: scale(1.1); /* Added scale transform */
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -35,8 +40,17 @@
 
 .card {
   padding: 2em;
+  margin: 2em auto; /* Centered card */
+  background: rgba(255, 255, 255, 0.15); /* Added semi-transparent background */
+  border-radius: 10px; /* Added border-radius */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added box shadow */
+  backdrop-filter: blur(10px); /* Added blur effect */
+  -webkit-backdrop-filter: blur(10px); /* Added blur effect for Safari */
 }
 
 .read-the-docs {
   color: #888;
+  margin-top: 1.5em; /* Added margin */
+  font-size: 1.1rem; /* Increased font size */
+  line-height: 1.5; /* Added line height */
 }
