@@ -95,3 +95,9 @@ In this milestone, we laid the foundation for the backend of the e-commerce appl
 - Connected the signup form with backend API for user registration.
 - Implemented input validation and error handling.
 - Styled the signup form to match the overall application design.
+
+## Milestone 6: Secure Signup Endpoint
+In this milestone, we implemented the following:
+- Added a backend `/signup` endpoint to securely store user data in the database.
+- Used bcrypt to hash passwords before saving them to ensure data protection.
+- Tested the endpoint using Postman for successful user registration.
