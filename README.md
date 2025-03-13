@@ -101,3 +101,25 @@ In this milestone, we implemented the following:
 - Added a backend `/signup` endpoint to securely store user data in the database.
 - Used bcrypt to hash passwords before saving them to ensure data protection.
 - Tested the endpoint using Postman for successful user registration.
+
+## Milestone 7: User Login & Authentication
+
+### Overview
+In Milestone 7, we focused on secure user login. This involved validating user credentials and verifying the encrypted password stored in the database to ensure safe and secure authentication.
+
+### Why Encrypt Passwords?
+- **Protect User Data**: Keeps passwords safe even if the database is compromised.
+- **Privacy**: Prevents users' passwords from being stored or transmitted in plain text.
+- **Compliance**: Meets security standards like GDPR and PCI-DSS.
+- **Security**: Password hashing makes it infeasible for attackers to recover the original password.
+
+### How Login Authentication Works
+1. **User Enters Credentials**:  
+   The login form collects the user's email/username and password.
+2. **Fetch User Data**:  
+   The backend retrieves the user record based on the provided identifier.  
+   - If the user is not found, an error is returned: "User does not exist."
+3. **Compare Encrypted Passwords**:  
+   - The entered password is hashed using the same algorithm (e.g., bcrypt).
+   - The resulting hash is compared with the stored hashed password.
+   - If they match, the user is authenticated; otherwise, an error is returned.
