@@ -3,6 +3,7 @@ import {Route,Routes} from 'react-router-dom'
 import Products from './Products'
 import Login from './Login'
 import Signup from './Signup'
+import AddProducts from './AddProducts'
 
 const AllRouting = () => {
   return (
@@ -11,6 +12,8 @@ const AllRouting = () => {
             <Route path='/' element={<Products />} />
             <Route path='/Login' element={<Login />} />
             <Route path='/Signup' element={<Signup />} />
+            <Route path='/AddProducts' element={<AddProducts />} />
+  
         </Routes>
       
     </div>
