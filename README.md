@@ -130,3 +130,8 @@ In Milestone 7, we focused on secure user login. This involved validating user c
 ## Milestone 9: *Created page for products upload*
 -created page for products upload in frontend page.
 -added form for validation.
+
+## Milestone 10: *created schema product upload*
+-created product router in backend
+-created product model in backend 
+-handled file upload by multer inside middleware multer
