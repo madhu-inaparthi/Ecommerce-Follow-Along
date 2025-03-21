@@ -135,3 +135,7 @@ In Milestone 7, we focused on secure user login. This involved validating user c
 -created product router in backend
 -created product model in backend 
 -handled file upload by multer inside middleware multer
+
+## **Milestone 11: created home page for products**
+-creeated **home page** for products presentation
+- added the **backend** part for handling products(created endpoint to get products)
