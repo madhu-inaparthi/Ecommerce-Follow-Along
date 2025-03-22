@@ -139,3 +139,11 @@ In Milestone 7, we focused on secure user login. This involved validating user c
 ## **Milestone 11: created home page for products**
 -creeated **home page** for products presentation
 - added the **backend** part for handling products(created endpoint to get products)
+
+# Milestone 12: My Products Page
+- Added a backend API endpoint to fetch products filtered by user email from MongoDB.
+- Integrated the API in the frontend to dynamically display data using the existing *Product Card* component.
+### Steps Completed
+1. *Backend*: Created an API endpoint to fetch filtered product data.
+2. *Frontend*: Implemented functionality to retrieve and render product data dynamically.
+3. *Finalized*: Updated the README and tested the integration.
