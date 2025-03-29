@@ -64,7 +64,7 @@ app.use("/product",async (req, res, next) => {
 
 app.listen(PORT,async ()=>{
     try {
-       await mongoose.connect(`mongodb+srv://abhishektiwari136136:${MONGO_PASSWORD}@cluster0.55lt4.mongodb.net/`);
+       await mongoose.connect(`mongodb+srv://madhukiraninaparthi2001:madhu@cluster0.zdjopxj.mongodb.net/`);
        console.log("Connected sucessfully");
     } catch (error) {
         console.log("Something went wrong not able to connect to server",error);
