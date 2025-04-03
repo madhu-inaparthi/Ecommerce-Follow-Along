@@ -4,6 +4,8 @@ const app = express();
 
 app.use(express.json());
 
+const path = require("path");
+
 const mongoose = require("mongoose");
 
 const dotenv = require("dotenv");
@@ -27,6 +29,8 @@ const PORT = process.env.PORT || 8080;
 const useRouter = require("./controller/userRouter");
 
 const productRouter = require("./controller/productRouter");
+
+const allProductRouter = require("./controller/allProducts");
 
 
 app.get("/",(req,res)=>{
@@ -62,9 +66,14 @@ app.use("/product",async (req, res, next) => {
     }
 },productRouter);
 
+app.use("/allproducts",allProductRouter);
+
+app.use("/uploads",express.static(path.join(__dirname,"uploads")));
+
 app.listen(PORT,async ()=>{
     try {
-       await mongoose.connect(`mongodb+srv://madhukiraninaparthi2001:madhu@cluster0.zdjopxj.mongodb.net/`);
+       await mongoose.connect(`mongodb+srv://madhukiraninaparthi2001:madhu@cluster0.zdjopxj.mongodb.net/
+`);
        console.log("Connected sucessfully");
     } catch (error) {
         console.log("Something went wrong not able to connect to server",error);
