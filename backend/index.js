@@ -18,6 +18,8 @@ const userModel = require("./models/userModel");
 
 const cors = require("cors");
 
+const cartRouter = require("./controller/cartProducts");
+
 app.use(cors());
 
 const MONGO_PASSWORD = process.env.MONGO_PASSWORD;
@@ -66,14 +68,39 @@ app.use("/product",async (req, res, next) => {
     }
 },productRouter);
 
+app.use("/cart",
+    async (req, res, next) => {
+        console.log("cart")
+        try {
+            const token = req.header("Authorization");
+            console.log(token)
+            if (!token) {
+                return res.status(401).json({ message: "Please login" });
+            }
+            
+            const decoded = jwt.verify(token, process.env.JWT_PASSWORD);
+            const user = await userModel.findById(decoded.id);
+            
+            if (!user && user.id) {
+                return res.status(404).json({ message: "Please signup" });
+            }
+            console.log(user.id);
+            req.userId = user.id; 
+            next();
+        } catch (error) {
+            console.log(error)
+            return res.status(400).json({ message: "Invalid Token", error });
+        }
+    } 
+    ,cartRouter);
+
 app.use("/allproducts",allProductRouter);
 
 app.use("/uploads",express.static(path.join(__dirname,"uploads")));
 
 app.listen(PORT,async ()=>{
     try {
-       await mongoose.connect(`mongodb+srv://madhukiraninaparthi2001:madhu@cluster0.zdjopxj.mongodb.net/
-`);
+       await mongoose.connect(`mongodb+srv://abhishektiwari136136:${MONGO_PASSWORD}@cluster0.55lt4.mongodb.net/`);
        console.log("Connected sucessfully");
     } catch (error) {
         console.log("Something went wrong not able to connect to server",error);

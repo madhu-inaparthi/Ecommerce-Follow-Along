@@ -73,7 +73,7 @@ userRouter.post("/login", async (req, res) => {
 
         if (matchedPass) {
             const token = jwt.sign({ name:user.name,email:user.email,id:user.id }, process.env.JWT_PASSWORD);
-            return res.status(200).json({ message: "User logged in successfully",token,name:user.name,id:user.id });
+            return res.status(200).json({ message: "User logged in successfully",token,name:user.name,id:user.id,userImage:user.image});
         } else {
             return res.status(401).json({ message: "Invalid email or password" });
         }
@@ -84,5 +84,37 @@ userRouter.post("/login", async (req, res) => {
         return res.status(500).json({ error: "Internal Server Error" });
     }
 });
+
+
+userRouter.put("/updateAddress/:id",async(req,res)=>{
+    try {
+        const {country,city,address1,address2,zipCode} = req.body;
+
+        if(!country || !city || !address1 || !address2 || !zipCode){
+            return res.status(400).send({
+                message:"All fields are required",
+            });
+        }
+
+        if(!id){
+            return res.status(400).send({
+                message:"please login",
+            });
+        }
+
+        const updatedUserAddress = await userModel.findByIdAndUpdate({_id:id},{...req.body});
+        if(!updatedUserAddress){
+            return res.status(400).send({
+                message:"User Not Found",
+            });
+        }
+
+        return res.status(200).send({message:"user updated sucessfully"});
+
+    } catch (error) {
+        console.error("address error:", error);
+        return res.status(500).json({ error: "Internal Server Error" }); 
+    }
+})
 
 module.exports = userRouter;
