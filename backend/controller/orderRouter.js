@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 
 const orderRouter = express.Router();
 
@@ -6,8 +7,8 @@ const orderModel = require("../models/orderSchema");
 
 const cartProducts = require("../models/cartModel");
 
-// Use absolute path to ensure correct resolution in deployment environment
-const productModel = require("../../backend/models/productModel");
+// Use path.resolve to create absolute paths that work in any environment
+const productModel = require(path.resolve(__dirname, "../models/productModel"));
 
 const userModel = require("../models/userModel");
 
