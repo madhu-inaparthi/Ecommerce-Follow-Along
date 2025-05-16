@@ -2,8 +2,8 @@ const express = require("express");
 
 const allProductRouter = express.Router();
 
-// Use local copy of productModel for deployment
-const productModel = require("./productModel");
+// Fix case sensitivity issue - use correct filename
+const productModel = require("../models/ProductModel");
 
 allProductRouter.get("/",async(req,res)=>{
     try {

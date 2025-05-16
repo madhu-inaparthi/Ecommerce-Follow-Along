@@ -1,7 +1,7 @@
 const express = require("express");
 
-// Use local copy of productModel for deployment
-const productModel = require("./productModel");
+// Fix case sensitivity issue - use correct filename
+const productModel = require("../models/ProductModel");
 const cartModel = require("../models/cartModel");
 
 const cartRouter = express.Router();

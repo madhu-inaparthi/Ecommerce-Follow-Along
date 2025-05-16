@@ -1,7 +1,7 @@
 const express = require("express");
 const productRouter = express.Router();
-// Use local copy of productModel for deployment
-const productModel = require("./productModel");
+// Fix case sensitivity issue - use correct filename
+const productModel = require("../models/ProductModel");
 const { productImages } = require("../middleware/multer");
 
 const uploadImages = (req, res, next) => {

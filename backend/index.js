@@ -1,10 +1,3 @@
-// Run debug script to understand file structure in deployment environment
-try {
-  require('./debug-paths');
-} catch (error) {
-  console.error('Error running debug script:', error);
-}
-
 const express = require("express");
 
 const app = express();

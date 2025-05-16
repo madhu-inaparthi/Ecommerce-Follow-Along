@@ -6,8 +6,8 @@ const orderModel = require("../models/orderSchema");
 
 const cartProducts = require("../models/cartModel");
 
-// Use local copy of productModel for deployment
-const productModel = require("./productModel");
+// Fix case sensitivity issue - use correct filename
+const productModel = require("../models/ProductModel");
 
 const userModel = require("../models/userModel");
 
