@@ -2,7 +2,8 @@ const express = require("express");
 
 const allProductRouter = express.Router();
 
-const productModel = require("../models/productModel");
+// Use absolute path to ensure correct resolution in deployment environment
+const productModel = require("../../backend/models/productModel");
 
 allProductRouter.get("/",async(req,res)=>{
     try {

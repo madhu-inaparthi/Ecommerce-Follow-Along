@@ -1,6 +1,7 @@
 const express = require("express");
 const productRouter = express.Router();
-const productModel = require("../models/productModel");
+// Use absolute path to ensure correct resolution in deployment environment
+const productModel = require("../../backend/models/productModel");
 const { productImages } = require("../middleware/multer");
 
 const uploadImages = (req, res, next) => {

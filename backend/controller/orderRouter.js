@@ -6,7 +6,8 @@ const orderModel = require("../models/orderSchema");
 
 const cartProducts = require("../models/cartModel");
 
-const productModel = require("../models/productModel");
+// Use absolute path to ensure correct resolution in deployment environment
+const productModel = require("../../backend/models/productModel");
 
 const userModel = require("../models/userModel");
 
