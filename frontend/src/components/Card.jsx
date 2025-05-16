@@ -7,7 +7,6 @@ const Card = ({ product }) => {
       const userData = JSON.parse(
         localStorage.getItem("follow-along-auth-token-user-name-id")
       );
-
       const response = await axios.get(
         `https://ecommerce-follow-along-ffxu.onrender.com/cart/cartproduct/${id}`,
         {
