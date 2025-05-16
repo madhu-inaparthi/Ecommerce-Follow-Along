@@ -157,4 +157,4 @@ Milestone 26
 ### **🛠 Milestone 29 worked on frontend for my order page
 
 ✅ add online payment gateway to our application using Paypal api.
->>>>>>> be8e0c69 (done)
+
