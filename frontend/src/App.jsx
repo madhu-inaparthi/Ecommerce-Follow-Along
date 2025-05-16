@@ -11,7 +11,6 @@ import store from './redux/store'
 import axios from 'axios'
 axios.defaults.withCredentials = true
 function App() {
-
   return (
     <>
     <Provider store={store}>
