@@ -1,8 +1,7 @@
 const express = require("express");
-const path = require("path");
 const productRouter = express.Router();
-// Use path.resolve to create absolute paths that work in any environment
-const productModel = require(path.resolve(__dirname, "../models/productModel"));
+// Use local copy of productModel for deployment
+const productModel = require("./productModel");
 const { productImages } = require("../middleware/multer");
 
 const uploadImages = (req, res, next) => {

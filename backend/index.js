@@ -1,3 +1,10 @@
+// Run debug script to understand file structure in deployment environment
+try {
+  require('./debug-paths');
+} catch (error) {
+  console.error('Error running debug script:', error);
+}
+
 const express = require("express");
 
 const app = express();
@@ -27,7 +34,7 @@ const cartRouter = require("./controller/cartProducts");
 
 
 app.use(cors({
-    origin: "https://ecommerce-follow-along-alpha.vercel.app", 
+    origin: "https://ecommerce-follow-along-alpha.vercel.app",
     credentials: true,
 }));
 
@@ -69,15 +76,15 @@ app.use("/product",async (req, res, next) => {
         if (!token) {
             return res.status(401).json({ message: "Please login" });
         }
-        
+
         const decoded = jwt.verify(token, process.env.JWT_PASSWORD);
         const user = await userModel.findById(decoded.id);
-        
+
         if (!user && user.id) {
             return res.status(404).json({ message: "Please signup" });
         }
         console.log(user.id)
-        req.userId = user.id; 
+        req.userId = user.id;
         next();
     } catch (error) {
         console.log(error)
@@ -94,21 +101,21 @@ app.use("/cart",
             if (!token) {
                 return res.status(401).json({ message: "Please login" });
             }
-            
+
             const decoded = jwt.verify(token, process.env.JWT_PASSWORD);
             const user = await userModel.findById(decoded.id);
-            
+
             if (!user && user.id) {
                 return res.status(404).json({ message: "Please signup" });
             }
             console.log(user.id);
-            req.userId = user.id; 
+            req.userId = user.id;
             next();
         } catch (error) {
             console.log(error)
             return res.status(400).json({ message: "Invalid Token", error });
         }
-    } 
+    }
     ,cartRouter);
 
     app.use("/address",
@@ -120,15 +127,15 @@ app.use("/cart",
                 if (!token) {
                     return res.status(401).json({ message: "Please login" });
                 }
-                
+
                 const decoded = jwt.verify(token, process.env.JWT_PASSWORD);
                 const user = await userModel.findById(decoded.id);
-                
+
                 if (!user && user.id) {
                     return res.status(404).json({ message: "Please signup" });
                 }
                 console.log(user.id);
-                req.userId = user.id; 
+                req.userId = user.id;
                 next();
             } catch (error) {
                 console.log(error)
@@ -147,15 +154,15 @@ app.use("/cart",
             if (!token) {
                 return res.status(401).json({ message: "Please login" });
             }
-            
+
             const decoded = jwt.verify(token, process.env.JWT_PASSWORD);
             const user = await userModel.findById(decoded.id);
-            
+
             if (!user && user.id) {
                 return res.status(404).json({ message: "Please signup" });
             }
             console.log(user.id);
-            req.userId = user.id; 
+            req.userId = user.id;
             next();
         } catch (error) {
             console.log(error)

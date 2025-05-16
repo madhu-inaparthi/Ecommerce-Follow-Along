@@ -1,5 +1,4 @@
 const express = require("express");
-const path = require("path");
 
 const orderRouter = express.Router();
 
@@ -7,8 +6,8 @@ const orderModel = require("../models/orderSchema");
 
 const cartProducts = require("../models/cartModel");
 
-// Use path.resolve to create absolute paths that work in any environment
-const productModel = require(path.resolve(__dirname, "../models/productModel"));
+// Use local copy of productModel for deployment
+const productModel = require("./productModel");
 
 const userModel = require("../models/userModel");
 
