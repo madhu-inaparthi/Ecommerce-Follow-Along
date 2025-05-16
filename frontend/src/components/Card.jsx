@@ -19,7 +19,7 @@ const Card = ({ product }) => {
       alert(response.data.message);
     } catch (error) {
       console.error("Error adding product to cart:", error);
-      alert("Something went wrong while adding to the cart.");
+      alert("Something went wrong while adding to the cart.");//testing
     }
   }
 
